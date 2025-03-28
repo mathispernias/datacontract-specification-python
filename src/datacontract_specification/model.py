@@ -331,7 +331,7 @@ class DataContractSpecification(pyd.BaseModel):
     @classmethod
     def json_schema(cls):
         package_name = __package__
-        json_schema = "datacontract-specification-json-schema-v1.1.0.json"
+        json_schema = "schema.json"
         with impresources.open_text(package_name,
                                     json_schema) as file:
             return file.read()

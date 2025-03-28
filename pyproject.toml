@@ -15,8 +15,8 @@ classifiers = [
 ]
 requires-python = ">=3.10"
 dependencies = [
-    "pydantic",
-    "pyyaml",
+    "pydantic>=2.8.2,<2.11.0",
+    "pyyaml~=6.0.1",
 ]
 
 [project.optional-dependencies]
@@ -36,3 +36,7 @@ line-length = 120
 extend-select = [
   "I",   # re-order imports in alphabetic order
 ]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

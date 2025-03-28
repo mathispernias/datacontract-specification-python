@@ -1,6 +1,6 @@
 import yaml
 
-from data_contract_specification import DataContractSpecification
+from .data_contract_specification import DataContractSpecification
 
 
 def test_roundtrip():

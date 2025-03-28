@@ -19,6 +19,12 @@ dependencies = [
     "pyyaml",
 ]
 
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "ruff",
+]
+
 [project.urls]
 Homepage = "https://github.com/datacontract/datacontract-specification-python"
 Issues = "https://github.com/datacontract/datacontract-specification-python/issues"

@@ -25,7 +25,12 @@ from datacontract_specification import DataContractSpecification
 
 # Load a data contract specification from a file
 data_contract = DataContractSpecification.from_file('path/to/your/data_contract.yaml')
+# Print the data contract specification as a YAML string
 print(data_contract.to_yaml())
+```
+
+```python
+from datacontract_specification import DataContractSpecification
 
 # Load a data contract specification from a string
 data_contract_str = """
@@ -45,5 +50,6 @@ info:
     url: https://teams.microsoft.com/l/channel/example/checkout
 """
 data_contract = DataContractSpecification.from_string(data_contract_str)
+# Print the data contract specification as a YAML string
 print(data_contract.to_yaml())
 ```

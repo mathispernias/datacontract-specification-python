@@ -2,6 +2,16 @@
 
 The pip module `datacontract-specification` to read and write YAML files using the [Data Contract Specification](https://datacontract.com). The pip module was extracted from the [Data Contract CLI](https://github.com/datacontract/datacontract-cli), which is its primary user.
 
+The version number of the pip module corresponds to the version of the Data Contract Specification it supports.
+
+## Version Mapping
+
+| Data Contract Specification Version | Pip Module Version |
+|-------------------------------------|--------------------|
+| 1.1.0                               | 1.1.0              |
+
+Fixes of a specific version are shipped with post released: `1.1.0.post1`, `1.1.0.post2`, etc.
+
 ## Installation
 
 ```bash

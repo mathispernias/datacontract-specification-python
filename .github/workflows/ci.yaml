@@ -29,7 +29,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install the project
         run: uv sync --all-extras --dev
-      - uses: chartboost/ruff-action@v1
+      - name: Check formatting
+        run: uv run ruff check
       - name: Run tests
-        # For example, using `pytest`
         run: uv run pytest

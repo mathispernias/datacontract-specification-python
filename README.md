@@ -1,6 +1,6 @@
 # Data Contract Specification (Python)
 
-The pip module `datacontract-specification`.
+The pip module `datacontract-specification` to read and write YAML files using the [Data Contract Specification](https://datacontract.com). The pip module was extracted from the [Data Contract CLI](https://github.com/datacontract/datacontract-cli), which is its primary user.
 
 ## Installation
 

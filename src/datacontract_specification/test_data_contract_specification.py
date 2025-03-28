@@ -24,3 +24,6 @@ info:
 
 def assert_equals_yaml(data_contract_str):
     assert yaml.safe_load(data_contract_str) == yaml.safe_load(DataContractSpecification.from_string(data_contract_str).to_yaml())
+
+def test_json_schema():
+    assert "" != DataContractSpecification.json_schema()

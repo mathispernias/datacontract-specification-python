@@ -1,1 +1,1 @@
-include datacontract-specification-json-schema-v1.1.0.json
+include datacontract_specification/datacontract-specification-json-schema-v1.1.0.json

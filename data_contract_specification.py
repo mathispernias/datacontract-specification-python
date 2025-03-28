@@ -1,9 +1,9 @@
+import importlib.resources as impresources
 import os
 from typing import Any, Dict, List
 
 import pydantic as pyd
 import yaml
-import importlib.resources as impresources
 
 DATACONTRACT_TYPES = [
     "string",

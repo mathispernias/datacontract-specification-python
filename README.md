@@ -21,7 +21,7 @@ pip install datacontract-specification
 ## Usage
 
 ```python
-from datacontract_specification import DataContractSpecification
+from datacontract_specification.model import DataContractSpecification
 
 # Load a data contract specification from a file
 data_contract = DataContractSpecification.from_file('path/to/your/data_contract.yaml')
@@ -30,7 +30,7 @@ print(data_contract.to_yaml())
 ```
 
 ```python
-from datacontract_specification import DataContractSpecification
+from datacontract_specification.model import DataContractSpecification
 
 # Load a data contract specification from a string
 data_contract_str = """

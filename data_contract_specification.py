@@ -308,19 +308,19 @@ class DataContractSpecification(pyd.BaseModel):
     tags: List[str] = []
 
     @classmethod
-    def from_file(cls, file):
-        if not os.path.exists(file):
-            raise FileNotFoundError(f"The file '{file}' does not exist.")
-        with open(file, "r") as file:
+    def from_file(cls, file_path: str) -> "DataContractSpecification":
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"The file '{file_path}' does not exist.")
+        with open(file_path, "r") as file:
             file_content = file.read()
-        return DataContractSpecification.from_string(file_content)
+        return cls.from_string(file_content)
 
     @classmethod
-    def from_string(cls, data_contract_str):
+    def from_string(cls, data_contract_str: str) -> "DataContractSpecification":
         data = yaml.safe_load(data_contract_str)
-        return DataContractSpecification(**data)
+        return cls(**data)
 
-    def to_yaml(self):
+    def to_yaml(self) -> str:
         return yaml.dump(
             self.model_dump(exclude_defaults=True, exclude_none=True,
                             by_alias=True),

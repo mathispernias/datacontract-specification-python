@@ -307,6 +307,14 @@ class DataContractSpecification(pyd.BaseModel):
     links: Dict[str, str] = {}
     tags: List[str] = []
 
+    def to_yaml(self) -> str:
+        return yaml.dump(
+            self.model_dump(exclude_defaults=True, exclude_none=True,
+                            by_alias=True),
+            sort_keys=False,
+            allow_unicode=True,
+        )
+
     @classmethod
     def from_file(cls, file_path: str) -> "DataContractSpecification":
         if not os.path.exists(file_path):
@@ -319,14 +327,6 @@ class DataContractSpecification(pyd.BaseModel):
     def from_string(cls, data_contract_str: str) -> "DataContractSpecification":
         data = yaml.safe_load(data_contract_str)
         return cls(**data)
-
-    def to_yaml(self) -> str:
-        return yaml.dump(
-            self.model_dump(exclude_defaults=True, exclude_none=True,
-                            by_alias=True),
-            sort_keys=False,
-            allow_unicode=True,
-        )
 
     @classmethod
     def json_schema(cls):

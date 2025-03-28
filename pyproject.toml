@@ -1,0 +1,32 @@
+[project]
+name = "datacontract-specification-python"
+version = "0.1.0"
+description = "The Pydantic Model of the Data Contract Specification"
+readme = "README.md"
+authors = [
+    { name = "Jochen Christ", email = "jochen.christ@innoq.com" },
+    { name = "Stefan Negele", email = "stefan.negele@innoq.com" },
+    { name = "Simon Harrer", email = "simon.harrer@innoq.com" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic",
+    "pyyaml",
+]
+
+[project.urls]
+Homepage = "https://github.com/datacontract/datacontract-specification-python"
+Issues = "https://github.com/datacontract/datacontract-specification-python/issues"
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+extend-select = [
+  "I",   # re-order imports in alphabetic order
+]

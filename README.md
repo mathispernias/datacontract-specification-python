@@ -8,9 +8,9 @@ The version number of the pip module corresponds to the version of the Data Cont
 
 | Data Contract Specification Version | Pip Module Version |
 |-------------------------------------|--------------------|
-| 1.1.0                               | 1.1.0              |
+| 1.1.0                               | >=1.1.0            |
 
-Fixes of a specific version are shipped with post released: `1.1.0.post1`, `1.1.0.post2`, etc.
+**Note**: We mirror major and minor version from the Data Contract Specification to the pip module, but not the patch version!
 
 ## Installation
 

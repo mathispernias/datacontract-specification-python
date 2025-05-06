@@ -54,6 +54,12 @@ data_contract = DataContractSpecification.from_string(data_contract_str)
 print(data_contract.to_yaml())
 ```
 
+## Development
+
+```
+uv sync --all-extras
+```
+
 ## Release
 
 - Change version number in `pyproject.toml`

@@ -127,14 +127,14 @@ class Quality(pyd.BaseModel):
     description: str | None = None
     query: str | None = None
     dialect: str | None = None
-    mustBe: int | None = None
-    mustNotBe: int | None = None
-    mustBeGreaterThan: int | None = None
-    mustBeGreaterThanOrEqualTo: int | None = None
-    mustBeLessThan: int | None = None
-    mustBeLessThanOrEqualTo: int | None = None
-    mustBeBetween: List[int] = None
-    mustNotBeBetween: List[int] = None
+    mustBe: float | int | None = None
+    mustNotBe: float | int | None = None
+    mustBeGreaterThan: float | int | None = None
+    mustBeGreaterThanOrEqualTo: float | int | None = None
+    mustBeLessThan: float | int | None = None
+    mustBeLessThanOrEqualTo: float | int | None = None
+    mustBeBetween: List[float | int] = None
+    mustNotBeBetween: List[float | int] = None
     engine: str | None = None
     implementation: str | Dict[str, Any] | None = None
 
@@ -162,10 +162,10 @@ class Field(pyd.BaseModel):
     pattern: str | None = None
     minLength: int | None = None
     maxLength: int | None = None
-    minimum: int | None = None
-    exclusiveMinimum: int | None = None
-    maximum: int | None = None
-    exclusiveMaximum: int | None = None
+    minimum: float | int | None = None
+    exclusiveMinimum: float | int | None = None
+    maximum: float | int | None = None
+    exclusiveMaximum: float | int | None = None
     enum: List[str] | None = []
     tags: List[str] | None = []
     links: Dict[str, str] = {}

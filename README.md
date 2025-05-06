@@ -53,3 +53,9 @@ data_contract = DataContractSpecification.from_string(data_contract_str)
 # Print the data contract specification as a YAML string
 print(data_contract.to_yaml())
 ```
+
+## Release
+
+- Change version number in `pyproject.toml`
+- Create tag with version number
+- Wait for GitHub Actions to build and publish the package

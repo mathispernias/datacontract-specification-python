@@ -63,5 +63,5 @@ uv sync --all-extras
 ## Release
 
 - Change version number in `pyproject.toml`
-- Create tag with version number
-- Wait for GitHub Actions to build and publish the package
+- Run `./release` in your command line
+- Wait for the releases on [GitHub](https://github.com/datacontract/datacontract-specification-python/releases), [PyPi](https://test.pypi.org/project/datacontract-specification/) and [PyPi (test)](https://test.pypi.org/project/datacontract-specification/)

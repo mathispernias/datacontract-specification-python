@@ -8,6 +8,7 @@ The version number of the pip module corresponds to the version of the Data Cont
 
 | Data Contract Specification Version | Pip Module Version |
 |-------------------------------------|--------------------|
+| 1.2.0                               | >=1.2.0            |
 | 1.1.0                               | >=1.1.0            |
 
 **Note**: We mirror major and minor version from the Data Contract Specification to the pip module, but not the patch version!
@@ -34,7 +35,7 @@ from datacontract_specification.model import DataContractSpecification
 
 # Load a data contract specification from a string
 data_contract_str = """
-dataContractSpecification: 1.1.0
+dataContractSpecification: 1.2.0
 id: urn:datacontract:checkout:orders-latest
 info:
   title: Orders Latest

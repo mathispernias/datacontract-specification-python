@@ -23,15 +23,11 @@ DATACONTRACT_TYPES = [
     "timestamp_tz",
     "timestamp_ntz",
     "date",
-    "time",
     "array",
-    "map",
+    "bytes",
     "object",
     "record",
     "struct",
-    "bytes",
-    "variant",
-    "json",
     "null",
 ]
 
@@ -40,48 +36,6 @@ class Contact(pyd.BaseModel):
     name: str | None = None
     url: str | None = None
     email: str | None = None
-
-    model_config = pyd.ConfigDict(
-        extra="allow",
-    )
-
-
-class Policy(pyd.BaseModel):
-    type: str | None = None
-    description: str | None = None
-    url: str | None = None
-
-    model_config = pyd.ConfigDict(
-        extra="allow",
-    )
-
-
-class Transformation(pyd.BaseModel):
-    type: str | None = None
-    subtype: str | None = None
-    description: str | None = None
-    masking: bool | None = None
-
-    model_config = pyd.ConfigDict(
-        extra="allow",
-    )
-
-
-class InputField(pyd.BaseModel):
-    namespace: str | None = None
-    name: str | None = None
-    field: str | None = None
-    transformations: List[Transformation] | None = None
-
-    model_config = pyd.ConfigDict(
-        extra="allow",
-    )
-
-
-class Lineage(pyd.BaseModel):
-    inputFields: List[InputField] | None = None
-    transformationDescription: str | None = None
-    transformationType: str | None = None
 
     model_config = pyd.ConfigDict(
         extra="allow",
@@ -130,7 +84,6 @@ class Server(pyd.BaseModel):
 class Terms(pyd.BaseModel):
     usage: str | None = None
     limitations: str | None = None
-    policies: List[Policy] | None = None
     billing: str | None = None
     noticePeriod: str | None = None
     description: str | None = None
@@ -228,13 +181,21 @@ class Field(pyd.BaseModel):
     )
     examples: List[Any] | None = None
     quality: List[Quality] | None = []
-    lineage: Lineage | None = None
     config: Dict[str, Any] | None = None
+    _custom_properties: Dict[str, Any] = pyd.PrivateAttr(default_factory=dict)
 
     model_config = pyd.ConfigDict(
         extra="allow",
     )
 
+    def add_custom_property(self, key: str, value: Any):
+        self._custom_properties[key] = value
+
+    def get_custom_property(self, key: str) -> Any:
+        return self._custom_properties.get(key)
+
+    def get_all_custom_properties(self) -> Dict[str, Any]:
+        return self._custom_properties
 
 class Model(pyd.BaseModel):
     description: str | None = None
@@ -245,13 +206,22 @@ class Model(pyd.BaseModel):
     quality: List[Quality] | None = []
     primaryKey: List[str] | None = []
     examples: List[Any] | None = None
-    additionalFields: bool | None = None
-    config: Dict[str, Any] = None
+    config: Dict[str, Any] = {}
     tags: List[str] | None = None
+    _custom_properties: Dict[str, Any] = pyd.PrivateAttr(default_factory=dict)
 
     model_config = pyd.ConfigDict(
         extra="allow",
     )
+
+    def add_custom_property(self, key: str, value: Any):
+        self._custom_properties[key] = value
+
+    def get_custom_property(self, key: str) -> Any:
+        return self._custom_properties.get(key)
+
+    def get_all_custom_properties(self) -> Dict[str, Any]:
+        return self._custom_properties
 
 
 class Info(pyd.BaseModel):
@@ -379,8 +349,7 @@ class DataContractSpecification(pyd.BaseModel):
 
     @classmethod
     def json_schema(cls):
-        package_name = __package__
+        package_name = __package__ or "default_package"
         json_schema = "schema.json"
-        with impresources.open_text(package_name,
-                                    json_schema) as file:
+        with impresources.open_text(package_name, json_schema) as file:
             return file.read()
